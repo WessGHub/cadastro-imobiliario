@@ -29,6 +29,7 @@ $pessoas = $stmt->fetchAll();
                         <th>Sexo</th>
                         <th>Telefone</th>
                         <th>Email</th>
+                        <th>Ações</th> <!-- NOVO -->
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,10 @@ $pessoas = $stmt->fetchAll();
                             <td><?= htmlspecialchars($p['sexo']) ?></td>
                             <td><?= htmlspecialchars($p['telefone']) ?></td>
                             <td><?= htmlspecialchars($p['email']) ?></td>
+                            <td>
+                                <a href="editar_pessoa.php?id=<?= $p['id'] ?>" class="btn btn-sm btn-warning me-1">Editar</a>
+                                <a href="excluir_pessoa.php?id=<?= $p['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Deseja realmente excluir esta pessoa?')">Excluir</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../src/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO imoveis (logradouro, numero, bairro, complemento, pessoa_id) VALUES (?, ?, ?, ?, ?)");
