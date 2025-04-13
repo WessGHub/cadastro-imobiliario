@@ -63,11 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="mb-3">
             <label class="form-label">Sexo*</label>
             <select name="sexo" class="form-select" required>
-                <option value="">Selecione</option>
-                <option value="M" <?= $pessoa['sexo'] === 'M' ? 'selected' : '' ?>>Masculino</option>
-                <option value="F" <?= $pessoa['sexo'] === 'F' ? 'selected' : '' ?>>Feminino</option>
-                <option value="Outro" <?= $pessoa['sexo'] === 'Outro' ? 'selected' : '' ?>>Outro</option>
-            </select>
+    <option value="" disabled <?= empty($pessoa['sexo']) ? 'selected' : '' ?>>Selecione</option>
+    <option value="M" <?= $pessoa['sexo'] === 'M' ? 'selected' : '' ?>>Masculino</option>
+    <option value="F" <?= $pessoa['sexo'] === 'F' ? 'selected' : '' ?>>Feminino</option>
+    <option value="Outro" <?= $pessoa['sexo'] === 'Outro' ? 'selected' : '' ?>>Outro</option>
+</select>
         </div>
 
         <div class="mb-3">

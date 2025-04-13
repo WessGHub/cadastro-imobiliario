@@ -32,11 +32,12 @@
         <div class="mb-3">
             <label class="form-label">Sexo*</label>
             <select name="sexo" class="form-select" required>
-                <option value="">Selecione</option>
-                <option value="M">Masculino</option>
-                <option value="F">Feminino</option>
-                <option value="Outro">Outro</option>
-            </select>
+    <option value="" disabled selected>Selecione</option>
+    <option value="M">Masculino</option>
+    <option value="F">Feminino</option>
+    <option value="Outro">Outro</option>
+</select>
+
         </div>
 
         <div class="mb-3">
