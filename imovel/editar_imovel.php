@@ -71,14 +71,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="mb-3">
             <label class="form-label">Contribuinte (Proprietário)*</label>
             <select name="pessoa_id" class="form-select" required>
-                <?php
-                $pessoas = $pdo->query("SELECT id, nome FROM pessoas ORDER BY nome")->fetchAll();
-                foreach ($pessoas as $pessoa) {
-                    $selected = $pessoa['id'] == $imovel['pessoa_id'] ? 'selected' : '';
-                    echo "<option value='{$pessoa['id']}' $selected>{$pessoa['nome']}</option>";
-                }
-                ?>
-            </select>
+    <option value="" disabled <?= empty($imovel['pessoa_id']) ? 'selected' : '' ?>>Selecione o contribuinte</option>
+    <?php
+    $pessoas = $pdo->query("SELECT id, nome FROM pessoas ORDER BY nome")->fetchAll();
+    foreach ($pessoas as $pessoa) {
+        $selected = $pessoa['id'] == $imovel['pessoa_id'] ? 'selected' : '';
+        echo "<option value='{$pessoa['id']}' $selected>{$pessoa['nome']}</option>";
+    }
+    ?>
+</select>
         </div>
 
         <div class="d-grid">

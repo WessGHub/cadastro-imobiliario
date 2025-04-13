@@ -38,16 +38,15 @@
         <div class="mb-3">
             <label class="form-label">Contribuinte (Proprietário)*</label>
             <select name="pessoa_id" class="form-select" required>
-               <?php
-            include '../src/config.php'; // ou o caminho correto
-
-             $stmt = $pdo->query("SELECT id, nome FROM pessoas ORDER BY nome");
-
-            while ($row = $stmt->fetch()) {
-                 echo "<option value='{$row['id']}'>{$row['nome']}</option>";
-               }
-              ?>
-         </select>
+    <option value="" disabled selected>Selecione o contribuinte</option>
+    <?php
+    include '../src/config.php';
+    $stmt = $pdo->query("SELECT id, nome FROM pessoas ORDER BY nome");
+    while ($row = $stmt->fetch()) {
+        echo "<option value='{$row['id']}'>{$row['nome']}</option>";
+    }
+    ?>
+</select>
             </select>
         </div>
 
