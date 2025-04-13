@@ -13,8 +13,16 @@ $imoveis = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
+
+<a href="../src/index.html" class="btn btn-outline-dark position-absolute top-0 end-0 m-3">
+  <i class="bi bi-house-door-fill"></i> Início
+</a>
 <div class="container py-5">
     <h1 class="text-center mb-4">Imóveis Cadastrados</h1>
+
+    <div class="mb-4">
+    <input type="text" id="pesquisarImovel" class="form-control" placeholder="🔍 Buscar imóvel por logradouro, bairro ou proprietário...">
+</div>
 
     <table class="table table-striped table-hover align-middle">
         <thead class="table-dark">
@@ -46,5 +54,20 @@ $imoveis = $stmt->fetchAll();
         </tbody>
     </table>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("pesquisarImovel");
+    input.addEventListener("keyup", () => {
+        const termo = input.value.toLowerCase();
+        const linhas = document.querySelectorAll("table tbody tr");
+
+        linhas.forEach(linha => {
+            const texto = linha.textContent.toLowerCase();
+            linha.style.display = texto.includes(termo) ? "" : "none";
+        });
+    });
+});
+</script>
 </body>
 </html>

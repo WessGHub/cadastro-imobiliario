@@ -40,6 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="bg-light">
 
+<a href="../src/index.html" class="btn btn-outline-dark position-absolute top-0 end-0 m-3">
+  <i class="bi bi-house-door-fill"></i> Início
+</a>
+
 <div class="container py-5">
     <h1 class="text-center mb-4">Editar Imóvel</h1>
 

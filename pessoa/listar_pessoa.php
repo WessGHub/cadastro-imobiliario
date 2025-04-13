@@ -12,13 +12,36 @@ $pessoas = $stmt->fetchAll();
     <title>Pessoas Cadastradas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("pesquisarPessoa");
+    input.addEventListener("keyup", () => {
+        const termo = input.value.toLowerCase();
+        const linhas = document.querySelectorAll("table tbody tr");
+
+        linhas.forEach(linha => {
+            const texto = linha.textContent.toLowerCase();
+            linha.style.display = texto.includes(termo) ? "" : "none";
+        });
+    });
+});
+</script>
+
 <body class="bg-light">
+
+<a href="../src/index.html" class="btn btn-outline-dark position-absolute top-0 end-0 m-3">
+  <i class="bi bi-house-door-fill"></i> Início
+</a>
 
 <div class="container py-5">
     <h1 class="text-center mb-4">Pessoas Cadastradas</h1>
 
     <?php if (count($pessoas) > 0): ?>
         <div class="table-responsive">
+        <div class="mb-3">
+    <input type="text" id="pesquisarPessoa" class="form-control" placeholder="🔍 Buscar por nome, CPF, ou email...">
+</div>
             <table class="table table-striped table-hover align-middle">
                 <thead class="table-dark">
                     <tr>
@@ -57,6 +80,7 @@ $pessoas = $stmt->fetchAll();
         </div>
     <?php endif; ?>
 </div>
+
 
 </body>
 </html>
